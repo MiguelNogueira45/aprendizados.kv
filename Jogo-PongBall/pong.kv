@@ -1,0 +1,56 @@
+<PongGame>:
+    ball: pong_ball        # Deve corresponder ao id do PongBall
+    player1: player_left   # Deve corresponder ao id da primeira raquete
+    player2: player_right  # Deve corresponder ao id da segunda raquete
+    canvas:
+        Color:
+            rgba: 0.15, 0.15, 0.2, 1.0 # Fundo cinza
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    Label:
+        font_size: 70
+        center_x: root.width / 4
+        top: root.top - 50
+        text: str(root.player1.score)
+
+    Label:
+        font_size: 70
+        center_x: root.width * 3/4
+        top: root.top - 50
+        text: str(root.player2.score)
+
+    PongBall:
+        id: pong_ball
+        size: 50, 50
+        canvas:
+            Color:
+                rgba: 145, 248, 28, 0.97 # Bola verde
+            Ellipse:
+                size: self.size
+                pos: self.pos
+
+    PongPaddle:
+        id: player_left
+        x: root.x
+        y: root.center_y - 100
+        size: 25, 200
+        canvas:
+            Color:
+                rgba: 1.0, 0.0, 0.0, 1 # Raquete vermelha
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+    PongPaddle:
+        id: player_right
+        x: root.width - 25
+        y: root.center_y - 100
+        size: 25, 200
+        canvas:
+            Color:
+                rgba: 0.53, 0.81, 0.92, 1 # Raquete azul
+            Rectangle:
+                size: self.size
+                pos: self.pos
